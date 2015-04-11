@@ -4,10 +4,9 @@
 		<title>OiSYS Application</title>
 		<style type="text/css">
 			
-			.list li{
+		li{
 			list-style: none;
-			font-style: arial;
-			font-weight: bold;
+			margin-left:5px;
 			}
 
 		</style>
@@ -15,33 +14,38 @@
 
 	</head>
 	<body ng-controller="dataCtrl as ctrl">
-			<form name="myForm" ng-submit="ctrl.register()">
-				Name:<input type="text" ng-model = "ctrl.user.name" id="name"><br/>
-				Amount:<input type="number" ng-model = "ctrl.user.amount" id="Amount"></br/>
-				Year:<input type="text" ng-model = "ctrl.user.year" id="year"></br>
-				Email<input type="email" ng-model = "ctrl.user.email" id="email"></br>
-				
-				<button type="submit" value="Register" ng-click="getList()">Get list</button>
-			    <button ng-click="submitList()">Submit</button>
-			</form>
-			  
-
-
-			<hr/>
-			Search list<input ng-model="query" type="text">
-			<hr/>
-			<div ng-repeat="list in lists | filter:query | orderBy:name">
-			  <ul class="list">
-			    <li>{{list.name}}</li>
-			    <li>{{list.amount | currency}}</li>
-			    <li>{{list.year}}</li>
-			    <li>{{list.email}}</li>
-			  <ul>
+		<nav class="navbar navbar-inverse"></nav>
+		<div class="container">
+			<div class="row">
+				<div class="jumbotron form-group  col-sm-12 col-md-6">
+					<h1 class="page-header centered-text">Product Detail</h1>
+					<div  ng-submit="ctrl.register()">
+						Name:</br><input size="35" type="text" ng-model = "ctrl.user.name" id="name"><br/>
+						Amount:</br><input size="35" type="text" ng-model = "ctrl.user.amount" id="Amount"></br/>
+						Year:</br><input size="35" type="text" ng-model = "ctrl.user.year" id="year"></br>
+						Email:</br><input size="35" type="email" ng-model = "ctrl.user.email" id="email">
+						</br>
+						<br>
+						<button class="btn btn-info" type="submit" value="Register" ng-click="getList()">Get list</button>
+					    <button class="btn btn-success" ng-click="submitList()">Submit</button>
+					    <br>
+					    <br>
+						Search list:</br><input ng-model="query" type="text">
+					</div>
+				</div>
+				<br>	
+				<div ng-repeat="list in lists | filter:query | orderBy:name" class="col-sm-12 col-md-6">
+					  <ul class="well">
+					   <button id="abc" class="btn btn-danger pull-right">Delete</button>
+						    <li>{{list.name}}</li>
+						    <li>{{list.amount | currency}}</li>
+						    <li>{{list.year}}</li>
+						    <li>{{list.email}}</li>
+					  </ul>
+				</div>	
 			</div>
-			
-		
-
-
+		</div>	  
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 		<!-- Angular JS -->
 		<script src ="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js"></script>

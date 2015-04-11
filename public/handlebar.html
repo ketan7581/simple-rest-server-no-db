@@ -2,35 +2,62 @@
 <html>
 	<head>
 		<title>OiSYS Application</title>
+		<style type="text/css">
+			 li{
+			 	list-style: none;
+			
+			}
+			#abc{
+				margin-top:-18px;
+			}
+		</style>
 	</head>
 	<body>
-
-			<h1>Product Detail</h1>
-			<div>
-				Car name:-<input type="text" id="name" placeholder="Enter Car Name"/><br/>
-				Car Amount:-<input type="number" id="amount"  placeholder="Enter Amount"/><br/>
-				Car Year:-<input type="date" id="year" placeholder="Enter Year"/><br/>
-				Your Email:-<input type="email" id="email" placeholder="Enter Your Email"/><br/>
-				<button id="btn">Submite</button>
-				<button id="get">Show List</button>
-			</div>
-				<div id="body">
+		<nav class="navbar navbar-inverse"></nav>
+		<div class="container">
+			<div class="row">
+				<h1 class="page-header centered-text">Product Detail</h1>
+				<div class="jumbotron form-group col-sm-12 col-md-6">
+					Car name:-
+					<br>
+					<input type="text" id="name" class="form-control" placeholder="Enter Car Name"/><br/>
+					Car Amount:-
+					<br>
+					<input type="text" id="amount" class="form-control"  placeholder="Enter Amount"/><br/>
+					Car Year:-
+					<br>
+					<input type="date" id="year" class="form-control" placeholder="Enter Year"/><br/>
+					Your Email:-
+					<br>
+					<input type="email" id="email" class="form-control" placeholder="Enter Your Email"/><br/>
+					</br>
+					<button id="btn" class="btn btn-success">Submite</button>
+					<button id="get" class="btn btn-info">Show List</button>
+				</div>
+			
+				<div id="body" class="col-sm-12 col-md-6">
 					<script id="container" type="text/x-handlebars-template">
-						
+						<div class="well">	
 				    		{{#list}}
-					    			<div>
-									<li>{{name}}</li>
-									<li>{{amount}}</li>
-									<li>{{year}}</li>
-									<li>{{email}}</li>
-									<button id="abc">Delete</button>
-									<div>
+										<li>{{name}}</li>
+										<li>{{amount}}</li>
+										<li>{{year}}</li>
+										<li>{{email}}</li>
 				    		{{/list}}
-				    	
+				    		{{#list}}
+										<li>{{name}}</li>
+										
+				    		{{/list}}
+
+				    		<button id="abc" class="btn btn-danger pull-right">Delete</button>
+				    	</div>
 		  			</script>
 		  		</div>	
+		  	</div>	
+		</div>  		
   			
   		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.3.0/handlebars.js"/></script>
+  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 		<script src="javascripts/jquery.min.js"/></script>
 		<script type="text/javascript" src="javascripts/handscript.js"></script>
 
