@@ -1,3 +1,11 @@
+Ketans-Air:~ ketanpatel$ cd ../../Applications
+Ketans-Air:Applications ketanpatel$ cd MAMP/htdocs/simple-rest-server-no-db/
+Ketans-Air:simple-rest-server-no-db ketanpatel$ npm start
+
+
+
+
+
 simple rest server - No DB
 =========
 

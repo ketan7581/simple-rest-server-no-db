@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<title>OiSYS Application</title>
+		<style type="text/css">
+			
+			.list li{
+			list-style: none;
+			font-style: arial;
+			font-weight: bold;
+			}
+
+		</style>
+
+
+	</head>
+	<body ng-controller="dataCtrl as ctrl">
+			<form name="myForm" ng-submit="ctrl.register()">
+				Name:<input type="text" ng-model = "ctrl.user.name" id="name"><br/>
+				Amount:<input type="number" ng-model = "ctrl.user.amount" id="Amount"></br/>
+				Year:<input type="text" ng-model = "ctrl.user.year" id="year"></br>
+				Email<input type="email" ng-model = "ctrl.user.email" id="email"></br>
+				
+				<button type="submit" value="Register" ng-click="getList()">Get list</button>
+			    <button ng-click="submitList()">Submit</button>
+			</form>
+			  
+
+
+			<hr/>
+			Search list<input ng-model="query" type="text">
+			<hr/>
+			<div ng-repeat="list in lists | filter:query | orderBy:name">
+			  <ul class="list">
+			    <li>{{list.name}}</li>
+			    <li>{{list.amount | currency}}</li>
+			    <li>{{list.year}}</li>
+			    <li>{{list.email}}</li>
+			  <ul>
+			</div>
+			
+		
+
+
+		<!-- Angular JS -->
+		<script src ="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js"></script>
+		<!-- Own Code -->
+		<script src="javascripts/angular.js"></script>
+
+	</body>
+</html>

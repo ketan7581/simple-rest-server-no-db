@@ -1,11 +1,14 @@
-$(document).ready(function(){
+$(document).ready(function(event){
+				var $displayList = $('#displayList');
 				var $name =$('#name');
 				var $amount =$('#amount');
 				var $year =$('#year');
 				var $email =$('#email');
-				var $container = $('#container');
-			
+				var $container = $('#container')
+				
+				//getting data from products url from back server
 				$('#get').on('click',function(){
+					
 					$.ajax({
 						url:"/products",
 						type:"get",
@@ -19,13 +22,18 @@ $(document).ready(function(){
                          }
 					});
 				});
+				//Posting using ajax ------ get data from form
 				$('#btn').on('click', function(){
+
 					var enterVal = {
 						name: $name.val(),
 						amount: $amount.val(),
 						year: $year.val(),
 						email: $email.val()
 					};
+					if(name == " "){
+						
+					}else{
 						$.ajax({
 							type:"post",
 							url:"/products",
@@ -37,21 +45,21 @@ $(document).ready(function(){
 								alert('Error posting list');
 							}
 						});
+					}
 
 				});
-
-					function addOrder(list){	
-		 					$container.append('<div class="well">'+'<br/> Name-'+list.name
-		 						+'<br/> Amount-'+list.amount+'<br/> Year-'+list.year+
-		 						'<br/> Email-'+list.email+'<button class="btn btn-danger pull-right">'
-		 						+'Delete'+'</button>'+'</div>');
+				//Handlebars------------------------------
+				var gotHtml = $('#container').html();
+				var complieHtml = Handlebars.compile(gotHtml);
+				function addOrder(list){	
+	 					$('#body').append(complieHtml({list:list}));
+	 					//since list is in array send as object to boday {{list:list}}
 					};
+				//handlebars----------------------------end
+				$('body').on('click','#abc',function(){
+					$(this).parent('div').remove();
+					})
 
-					$('#container').on("click", "button", function () {
-				        var row = $(this).parent('div').remove();
-				    })
-				    
-					
-	});
-			
+				
+			});
 			
